@@ -1,0 +1,31 @@
+<VirtualHost *:80>
+  #ServerName www.example.com
+
+  ServerAdmin artist.io@outlook.com
+  DocumentRoot <%= node['basic-lamp-lemp']['document_root'] %>
+
+  <Directory />
+          Options FollowSymLinks
+          AllowOverride None
+  </Directory>
+
+  <Directory <%= node['basic-lamp-lemp']['document_root'] %> >
+          Options Indexes FollowSymLinks MultiViews
+          AllowOverride None
+          Order allow,deny
+          allow from all
+  </Directory>
+
+  LogLevel warn
+
+  ErrorLog ${APACHE_LOG_DIR}/error.log
+  CustomLog ${APACHE_LOG_DIR}/access.log combined
+
+  AddType application/x-httpd-php .php
+  AddType application/x-httpd-php-source .phps
+  DirectoryIndex index.php index.html
+
+  ServerSignature Off
+</VirtualHost>
+
+# vim: syntax=apache ts=4 sw=4 sts=4 sr noet

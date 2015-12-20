@@ -1,7 +1,10 @@
 name 'basic-lamp-lemp'
-maintainer 'The Authors'
-maintainer_email 'you@example.com'
-license 'all_rights'
+maintainer 'Artist IO'
+maintainer_email 'artist.io@outlook.com'
+license 'GPL 2'
 description 'Installs/Configures basic-lamp-lemp'
 long_description 'Installs/Configures basic-lamp-lemp'
 version '0.1.0'
+
+depends 'apt', '~> 2.9.2'
+depends 'httpd', '~> '0.3.3'
