@@ -15,8 +15,8 @@ mysql_client 'default' do
 end
 
 # Load the secrets file and the encrypted data bag item that holds the root password.
-password_secret = Chef::EncryptedDataBagItem.load_secret(node['basic-lamp-lemp']['passwords']['secret_path'])
-root_password_data_bag_item = Chef::EncryptedDataBagItem.load('passwords', 'mysql_root_password', password_secret)
+#password_secret = Chef::EncryptedDataBagItem.load_secret(node['basic-lamp-lemp']['passwords']['secret_path'])
+#root_password_data_bag_item = Chef::EncryptedDataBagItem.load('passwords', 'mysql_root_password', password_secret)
 
 # Configure the MySQL service.
 mysql_service 'default' do
