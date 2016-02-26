@@ -2,6 +2,7 @@
   #ServerName www.example.com
 
   ServerAdmin artist.io@outlook.com
+  ServerAdmin <%= node['basic-lamp-lemp']['server_admin'] %>
   DocumentRoot <%= node['basic-lamp-lemp']['document_root'] %>
 
   <Directory />

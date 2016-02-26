@@ -9,6 +9,11 @@ include_recipe 'basic-lamp-lemp::httpd-user'
 
 # Install Apache and start the service.
 httpd_service 'default' do
+  keepalivetimeout 15
+  minspareservers 1
+  maxspareservers 3
+  maxclients 10
+  maxconnectionsperchild 3000
   mpm 'prefork'
   action [:create, :start]
 end
