@@ -7,12 +7,9 @@
 include_recipe 'php5-fpm::install'
 
 # Adding section to delete the www.conf in order not to run default pool
-php_fpm_pool "www" do
-  action :delete
-end
 
-php5_fpm_pool "default" do
-    pool_name 'thekubus-pool'
+php5_fpm_pool "www" do
+    overwrite 'true'
     pool_user node['basic-lamp-lemp']['php-fpm-user']
     pool_group node['basic-lamp-lemp']['php-fpm-group']
     listen_address "127.0.0.1"
