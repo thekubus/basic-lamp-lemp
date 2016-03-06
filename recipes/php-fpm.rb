@@ -29,10 +29,10 @@ php5_fpm_pool "default" do
                       { "sendmail_path" => "/usr/sbin/sendmail -t -i -f www@my.domain.com", "memory_limit" => "32M"}
                   )
     overwrite true
-    action :create
+    action :install
 end
 
 # Adding section to delete the www.conf in order not to run default pool
-file /etc/php5/fpm/pool.d/www.conf
-  action :delete
+php_fpm_pool "www" do
+  action :uninstall
 end
