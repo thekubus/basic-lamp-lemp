@@ -9,6 +9,10 @@ include_recipe 'basic-lamp-lemp::httpd-user'
 
 # Install Apache and start the service.
 httpd_service 'default' do
+  instance node['basic-lamp-lemp']['httpd-instance']
+  contact node['basic-lamp-lemp']['server_admin']
+  run_user node['basic-lamp-lemp']['httpd-user']
+  run_group node['basic-lamp-lemp']['httpd-group']
   keepalivetimeout '15'
   minspareservers '1'
   maxspareservers '3'
@@ -20,7 +24,7 @@ end
 
 # Add the site configuration.
 httpd_config 'default' do
-  instance 'default'
+  instance node['basic-lamp-lemp']['httpd-instance']
   source 'httpd.conf.erb'
   notifies :restart, 'httpd_service[default]'
 end
