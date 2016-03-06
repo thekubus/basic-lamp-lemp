@@ -4,7 +4,7 @@ maintainer_email 'artist.io@outlook.com'
 license 'GPL 2'
 description 'Installs/Configures basic-lamp-lemp'
 long_description 'Installs/Configures basic-lamp-lemp'
-version '0.1.9'
+version '0.1.10'
 
 depends 'apt', '~> 2.9.2'
 depends 'httpd', '~> 0.3.3'
