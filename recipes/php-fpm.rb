@@ -7,6 +7,7 @@
 include_recipe 'php5-fpm::install'
 
 php5_fpm_pool "default" do
+    pool_name 'www'
     pool_user node['basic-lamp-lemp']['php-fpm-user']
     pool_group node['basic-lamp-lemp']['php-fpm-group']
     listen_address "127.0.0.1"
