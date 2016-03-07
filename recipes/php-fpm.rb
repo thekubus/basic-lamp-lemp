@@ -9,7 +9,10 @@ include_recipe 'php5-fpm::install'
 # Adding section to delete the www.conf in order not to run default pool
 
 php5_fpm_pool "www" do
-    overwrite 'true'
+    action :delete
+end
+
+php5_fpm_pool "thekubus-pool" do
     pool_user node['basic-lamp-lemp']['php-fpm-user']
     pool_group node['basic-lamp-lemp']['php-fpm-group']
     listen_address "127.0.0.1"
@@ -30,6 +33,5 @@ php5_fpm_pool "www" do
     php_ini_values (
                       { "sendmail_path" => "/usr/sbin/sendmail -t -i -f www@my.domain.com", "memory_limit" => "32M"}
                   )
-    overwrite true
     action :create
 end
