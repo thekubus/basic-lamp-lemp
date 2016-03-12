@@ -14,6 +14,7 @@ httpd_service 'default' do
   run_user node['basic-lamp-lemp']['httpd-user']
   run_group node['basic-lamp-lemp']['httpd-group']
   keepalivetimeout '15'
+  startservers '2'
   minspareservers '1'
   maxspareservers '3'
   maxclients '10'
