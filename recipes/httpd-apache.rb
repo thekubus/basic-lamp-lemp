@@ -19,6 +19,7 @@ httpd_service 'default' do
   maxclients '10'
   maxconnectionsperchild '3000'
   mpm 'prefork'
+  modules ['rewrite', 'proxy', 'proxy_fcgi']
   action [:create, :start]
 end
 
@@ -36,7 +37,7 @@ end
 
 # Write a default home page.
 file "#{node['basic-lamp-lemp']['document_root']}/index.php" do
-  content '<html>This is a placeholder</html>'
+  content '<?php phpinfo(); ?>'
   mode '0644'
   owner node['basic-lamp-lemp']['httpd-user']
   group node['basic-lamp-lemp']['httpd-group']

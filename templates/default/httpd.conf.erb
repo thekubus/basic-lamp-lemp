@@ -24,7 +24,10 @@
 
   AddType application/x-httpd-php .php
   AddType application/x-httpd-php-source .phps
-  DirectoryIndex index.php index.html
+#  DirectoryIndex index.php index.html
+
+  ProxyPassMatch ^/(.*\.php(/.*)?)$ fcgi://127.0.0.1:8000<%= node['basic-lamp-lemp']['document_root'] %>/$1
+  DirectoryIndex /index.php index.php
 
   ServerSignature Off
 </VirtualHost>
