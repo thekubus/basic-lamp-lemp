@@ -24,3 +24,8 @@ mysql_service 'default' do
   action [:create, :start]
 end
 
+mysql_config 'default' do
+  source 'innodb.cnf.erb'
+  notifies :restart, 'mysql_service[default]'
+  action :create
+end
