@@ -1,85 +1,87 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="en-us">
   <head>
-    <meta charset='utf-8'>
-    <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <meta name="description" content="Basic LAMP-LEMP Chef Cookbook : This is the recipe to cook basic LAMP/LEMP Server. That means either Apache or NGINX, ">
-
-    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
-
-    <title>Basic LAMP-LEMP Chef Cookbook</title>
+    <meta charset="UTF-8">
+    <title>Basic LAMP-LEMP Chef Cookbook by thekubus</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="stylesheets/normalize.css" media="screen">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
   </head>
-
   <body>
+    <section class="page-header">
+      <h1 class="project-name">Basic LAMP-LEMP Chef Cookbook</h1>
+      <h2 class="project-tagline">This is the recipe to cook basic LAMP/LEMP Server. That means either Apache or NGINX, </h2>
+      <a href="https://github.com/thekubus/basic-lamp-lemp" class="btn">View on GitHub</a>
+      <a href="https://github.com/thekubus/basic-lamp-lemp/zipball/master" class="btn">Download .zip</a>
+      <a href="https://github.com/thekubus/basic-lamp-lemp/tarball/master" class="btn">Download .tar.gz</a>
+    </section>
 
-    <!-- HEADER -->
-    <div id="header_wrap" class="outer">
-        <header class="inner">
-          <a id="forkme_banner" href="https://github.com/thekubus/basic-lamp-lemp">View on GitHub</a>
-
-          <h1 id="project_title">Basic LAMP-LEMP Chef Cookbook</h1>
-          <h2 id="project_tagline">This is the recipe to cook basic LAMP/LEMP Server. That means either Apache or NGINX, </h2>
-
-            <section id="downloads">
-              <a class="zip_download_link" href="https://github.com/thekubus/basic-lamp-lemp/zipball/master">Download this project as a .zip file</a>
-              <a class="tar_download_link" href="https://github.com/thekubus/basic-lamp-lemp/tarball/master">Download this project as a tar.gz file</a>
-            </section>
-        </header>
-    </div>
-
-    <!-- MAIN CONTENT -->
-    <div id="main_content_wrap" class="outer">
-      <section id="main_content" class="inner">
-        <p>Welcome to the basic-lamp-lemp-cookbook wiki! This wiki is for the cookbook to cook basic Linux server, with either Apache or NGINX, MySQL, and PHP-FPM.</p>
+    <section class="main-content">
+      <p>Welcome to the basic-lamp-lemp-cookbook wiki! This wiki is for the cookbook to cook basic Linux server, with either Apache or NGINX, MySQL, and PHP-FPM.</p>
 
 <h2>
-<a id="recipe" class="anchor" href="#recipe" aria-hidden="true"><span class="octicon octicon-link"></span></a>Recipe</h2>
+<a id="recipe" class="anchor" href="#recipe" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Recipe</h2>
 
 <ul>
 <li>httpd-apache. This recipe will install Apache 2 HTTP Server. Please use either Apache or NGINX, not both</li>
-<li>httpd-nginx. This recipe will install NGINX HTTP Server. Please use either Apache or NGINX, not both</li>
-<li>httpd-configure. This recipe will configure new sites in httpd server </li>
-<li>mysql-install. This recipe will install MySQL server</li>
-<li>mysql-createdb. This recipe will create new MySQL database</li>
-<li>php-fpm-install. This recipe will install PHP FPM</li>
+<li>httpd-nginx. This recipe will install NGINX HTTP Server. Please use either Apache or NGINX, not both (Future development)</li>
+<li>db-mysql. This recipe will install MySQL server</li>
+<li>mysql-createdb. This recipe will create new MySQL database (Future development)</li>
+<li>php-fpm. This recipe will install PHP FPM</li>
 <li>httpd-user. This recipe will create user for httpd (NGINX or Apache)</li>
+<li>fpm-user. This recipe will create user for php-fpm</li>
 </ul>
 
 <h2>
-<a id="attribute" class="anchor" href="#attribute" aria-hidden="true"><span class="octicon octicon-link"></span></a>Attribute</h2>
+<a id="attribute" class="anchor" href="#attribute" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Attribute</h2>
 
 <ul>
 <li>default['basic-lamp-lemp']['httpd-user'] = The user to be used by httpd daemon</li>
 <li>default['basic-lamp-lemp']['httpd-group'] = The group to be used by httpd daemon</li>
+<li>default['basic-lamp-lemp']['httpd-instance'] = The name of Apache httpd instance to configure. Refer to chef httpd cookbook for explanation of instance</li>
+<li>default['basic-lamp-lemp']['server_admin'] = The email address of Server Administrator, to be used in httpd 404 page</li>
 <li>default['basic-lamp-lemp']['document_root'] = The root directory of httpd daemon</li>
+<li>default['basic-lamp-lemp']['passwords']['secret_path'] = MySQL root password secret path. Not being used at the moment</li>
+<li>default['basic-lamp-lemp']['php-fpm-user'] = The user to be used by php-fpm daemon</li>
+<li>default['basic-lamp-lemp']['php-fpm-group'] = The group to be used by php-fpm daemon</li>
 </ul>
 
 <h2>
-<a id="limitations" class="anchor" href="#limitations" aria-hidden="true"><span class="octicon octicon-link"></span></a>Limitations</h2>
+<a id="limitations" class="anchor" href="#limitations" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Limitations</h2>
 
 <ul>
-<li>Only tested on Ubuntu platform. Might works on other Linux platform. Feel free to port, test, and let me know the result, or update this Wiki</li>
+<li>Only tested on Ubuntu platform. Might works on other Linux platform. Feel free to port, test, and let me know the result</li>
 </ul>
 
 <h2>
-<a id="to-do-list" class="anchor" href="#to-do-list" aria-hidden="true"><span class="octicon octicon-link"></span></a>To Do List</h2>
+<a id="to-do-list" class="anchor" href="#to-do-list" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>To Do List</h2>
 
 <ul>
-<li>Add attribute default['basic-lamp-lemp']['server-admin'] = Email address of server administrator</li>
+<li>Using chef vault to store MySQL root password (Enhancement #2)</li>
+<li>Reduce number of Apache thread to start. However, as we are using FastCGI, each Apache thread is only less than 100kb (Enhancement #4)</li>
+<li>Add NGINX as per original project plan</li>
+<li>Add recipe to create new MySQL user</li>
+<li>Add recipe to create new MySQL Database</li>
 </ul>
-      </section>
-    </div>
 
-    <!-- FOOTER  -->
-    <div id="footer_wrap" class="outer">
-      <footer class="inner">
-        <p class="copyright">Basic LAMP-LEMP Chef Cookbook maintained by <a href="https://github.com/thekubus">thekubus</a></p>
-        <p>Published with <a href="https://pages.github.com">GitHub Pages</a></p>
+<h2>
+<a id="support" class="anchor" href="#support" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Support</h2>
+
+<ul>
+<li>To report issue or bug, open new issue in the github page</li>
+<li>I would appreciate help in fixing bug or developing enhancement. Feel free to send me pull request</li>
+</ul>
+
+      <footer class="site-footer">
+        <span class="site-footer-owner"><a href="https://github.com/thekubus/basic-lamp-lemp">Basic LAMP-LEMP Chef Cookbook</a> is maintained by <a href="https://github.com/thekubus">thekubus</a>.</span>
+
+        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the <a href="https://github.com/jasonlong/cayman-theme">Cayman theme</a> by <a href="https://twitter.com/jasonlong">Jason Long</a>.</span>
       </footer>
-    </div>
 
-    
+    </section>
 
+  
   </body>
 </html>
